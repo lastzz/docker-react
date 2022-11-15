@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t lastzz/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true lastzz/docker-react npm run test
